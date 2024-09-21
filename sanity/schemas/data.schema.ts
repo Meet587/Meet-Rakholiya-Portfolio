@@ -229,7 +229,7 @@ export default {
             name: "projects",
             title: "Projects",
             type: "array",
-            // validation: (rule: Rule) => rule.required(),
+            validation: (rule: Rule) => rule.required(),
             of: [
                 {
                     type: "object",

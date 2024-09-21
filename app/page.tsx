@@ -21,8 +21,7 @@ export default async function page() {
             skills={data.skills}
           />
           <ModalProvider>
-            <></>
-            {/* <Projects projects={data.projects} /> */}
+            <Projects projects={data.projects} />
           </ModalProvider>
           {/* <Testimonials data={data.testimonials} /> */}
           <Contact
