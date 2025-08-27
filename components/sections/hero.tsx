@@ -1,14 +1,14 @@
-import { FaLocationArrow, FaDownload } from "react-icons/fa6";
+import { PersonalInfo } from "@/lib/types";
+import Image from "next/image";
+import { FaDownload, FaLocationArrow } from "react-icons/fa6";
+import { DotBackground, Heading } from "../";
 import {
+  Highlight,
   MagicButton,
   MotionUp,
-  Highlight,
   TextAppearAnimation,
 } from "../animations";
 import { Container } from "../container";
-import Image from "next/image";
-import { DotBackground, Heading } from "../";
-import { PersonalInfo } from "@/lib/types";
 
 interface Props {
   data: PersonalInfo;
@@ -23,9 +23,7 @@ export function Hero({ data }: Props) {
             <h1 className="text-3xl  md:text-6xl text-neutral-700 dark:text-blue-100 !leading-snug text-center mx-auto font-[900]">
               Hi, I'm {data.name.split(" ")[0]}, a Self Taught
               <br />
-              <Highlight delay={1.8}>
-                {data.position}
-              </Highlight>
+              <Highlight delay={1.8}>{data.position}</Highlight>
             </h1>
           </MotionUp>
 
@@ -33,8 +31,8 @@ export function Hero({ data }: Props) {
             <h6 className="text-center !leading-7 md:!leading-10  font-semibold text-2 lg:text-3xl max-w-xl  text-blue-100 ">
               Based in {data.address},
               <br />
-              Specialized in <Highlight delay={1.8}>React</Highlight> and{" "}
-              <Highlight delay={1.8}>Next.js</Highlight>
+              Specialized in <Highlight delay={1.8}>React.js</Highlight> and{" "}
+              <Highlight delay={1.8}>Nest.js</Highlight>
             </h6>
           </MotionUp>
 
@@ -63,8 +61,7 @@ export function Hero({ data }: Props) {
           <div
             className="p-0 py-10 md:p-14 rounded-lg"
             style={{
-              background:
-                `linear-gradient(90deg, rgba(4,7,29,0.85) 0%, rgba(12,14,35,0.80) 100%), url('${data.setupImage}')`,
+              background: `linear-gradient(90deg, rgba(4,7,29,0.85) 0%, rgba(12,14,35,0.80) 100%), url('${data.setupImage}')`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
@@ -85,15 +82,17 @@ export function Hero({ data }: Props) {
                 />
               </div>
 
-              <div className="flex justify-center order-1 lg:order-2 w-full  lg:w-[30%]">
-                <Image
-                  src={data.profileImage}
-                  width={400}
-                  height={700}
-                  alt={data.name}
-                  className="rounded-lg aspect-square overflow-hidden"
-                />
-              </div>
+              {data.profileImage && (
+                <div className="flex justify-center order-1 lg:order-2 w-full  lg:w-[30%]">
+                  <Image
+                    src={data.profileImage}
+                    width={400}
+                    height={700}
+                    alt={data.name}
+                    className="rounded-lg aspect-square overflow-hidden"
+                  />
+                </div>
+              )}
             </div>
           </div>
         </MotionUp>

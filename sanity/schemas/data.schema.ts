@@ -87,7 +87,7 @@ export default {
             name: "profleImage",
             title: "Profile Image",
             type: "image",
-            validation: (Rule: any) => Rule.required(),
+            // validation: (Rule: any) => Rule.required(),
             options: {
                 hotspot: true,
             },
